@@ -1,0 +1,16 @@
+function diffArray(arr1, arr2) {
+  const newArr = [];
+  arr2.map(arr => {
+    if(!arr1.includes(arr)){
+      newArr.push(arr);
+    }
+  })
+  arr1.map(arr => {
+    if(!arr2.includes(arr)){
+      newArr.push(arr);
+    }
+  })
+  return newArr;
+}
+
+diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);

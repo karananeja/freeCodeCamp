@@ -1,0 +1,50 @@
+function convertHTML(str) {
+  let newArr = [...str.split(' ')], andHtml = '';
+  for (let i = 0; i < str.length; i++) {
+    if (newArr[i] === '&') {
+      andHtml = '&amp;';
+    }
+  }
+  return newArr[0] + ' ' + andHtml + ' ' + newArr[2];
+}
+
+console.log(convertHTML('abc'));
+
+
+function whatIsInAName(collection, source) {
+  console.log(Object.assign({},collection))
+  const arr = [];
+  // Only change code below this line
+  for (let i = 0; i < collection.length; i++) {
+    Object.keys(collection[i]).forEach((key) => {
+      Object.keys(source).forEach((ke) => {
+        console.log(collection[i] )
+        if (collection[i] === ke && collection[i][key] === source[ke]) {
+          arr.push(collection[i]);
+        }
+      })
+    })
+  }
+  // Only change code above this line
+  return arr;
+}
+
+console.log(whatIsInAName([{"a": 1, "b": 2, "c": 3}], {"a": 1, "b": 9999, "c": 3}));
+
+function whatIsInAName(collection, source) {
+  const arr = [];
+  // Only change code below this line
+  for (let i = 0; i < collection.length; i++) {
+    Object.keys(collection[i]).forEach((key) => {
+      Object.keys(source).forEach((srcKey) => {
+        if (source.hasOwnProperty(key) && source[srcKey] === collection[i][key]) {
+          arr.push(collection[i]);
+        }
+      })
+    })
+  }
+  // Only change code above this line
+  return arr;
+}
+
+console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 }));

@@ -1,0 +1,97 @@
+Question 1 – 2 Minutes
+In what order will the numbers 1-4 be logged to the console when the code below is executed? Why?
+(function() {
+    console.log(1); 
+    setTimeout(function(){console.log(2)}, 1000); 
+    setTimeout(function(){console.log(3)}, 0); 
+    console.log(4);
+})();
+
+Question 3: 2 Minutes
+What is the value of clothes[0]:
+const clothes = ['jacket', 't-shirt'];
+clothes.length = 0;
+clothes[0]; // => ???
+
+Question 2: 15 Minutes
+How to count number of data types in an array in JavaScript?
+Given an array and the task is to count the number of data types used to create that array.
+Example:
+Input: [1, true, “hello”, [], {}, undefined, function(){}]
+Output: {
+  boolean: 1,
+  function: 1,
+  number: 1,
+  object: 2,
+  string: 1,
+  undefined: 1
+}
+
+
+const array = [1, true, 'hello', {}, undefined, function(){}];
+let boolCount = 0, numCount = 0, strCount = 0, objCount = 0, unCount = 0, arrCount = 0, fnCount = 0;
+
+for(let i = 0; i < array.length; i++){
+if(typeof(array[i]) === 'boolean'){
+boolCount++;
+}else if(typeof(array[i]) === 'number'){
+numCount++;
+}else if(typeof(array[i]) === 'string'){
+strCount++;
+}else if(typeof(array[i]) === 'object'){
+objCount++;
+}else if(typeof(array[i]) === 'function'){
+fnCount++;
+}else if(typeof(array[i]) === 'undefined'){
+unCount++;
+}else{
+arrCount++;
+}
+}
+console.log(boolCount, numCount, strCount, objCount, unCount, fnCount);
+
+
+Question 4: 15 Minutes
+How to move specified number of elements to the end of an array in JavaScript?
+The purpose of this article is to move some specified elements to the end of an array using JavaScript.
+Given an array of length say N, move some specified amount of elements say X to the end of the given array.
+Input:
+arr = [1, 2, 3, 4, 5]
+X = 2
+Output: The following array should be the output as the first two numbers are moved to the end of the array.
+ [3, 4, 5, 1, 2]
+
+
+const arr = [1, 2, 3, 4, 5];
+
+const swap = (arr, index) =>{
+let newArrAfterIndex= [...arr];
+let newArrBeforeIndex = [...arr];
+let resultArray = [];
+resultArray = [...newArrAfterIndex.slice(index), ...newArrBeforeIndex.splice(0, index)];
+
+console.log(resultArray);
+}
+
+swap(arr, 5);
+
+
+Question 5 – 10 Minutes
+How to convert a 2D array to a comma-separated values (CSV) string in JavaScript?
+Given a 2D array, we must convert it to a comma-separated values (CSV) string using JS.
+Input:
+[[ "a", "b"], [ "c", "d"]]
+Output:
+"a,b 
+ c,d"
+Answer
+
+
+let array = [[ "a", "b"], [ "c", "d"], ["e", "f"]];
+let str = '';
+
+
+for(let i = 0; i < array.length; i++){
+str += array[i].join(',')+ '\n';
+console.log(str);
+}

@@ -1,0 +1,11 @@
+function titleCase(str) {
+  let strArray = str.toLowerCase().split(' '), capArray = [], lowArray = [], result = [];
+  for(let i = 0; i < strArray.length; i++){
+    capArray[i] = strArray[i].charAt(0).toUpperCase();
+    lowArray[i] = strArray[i].substr(1);
+    result[i] = capArray[i] + lowArray[i];
+  }
+  return result.join(' ');
+}
+
+titleCase("HERE IS MY HANDLE HERE IS MY SPOUT");
